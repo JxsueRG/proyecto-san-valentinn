@@ -62,7 +62,7 @@ window.onload = function () {
         });
 
         // Reproducir sonido de celebración (opcional)
-        const audio = new Audio('celebration.mp3');
+        const audio = new Audio('background-music.mp3');
         audio.play();
 
         // Ocultar la ventana de bienvenida y mostrar el contenido principal
