@@ -9,16 +9,20 @@ window.onload = function () {
 
     // Crear el iframe de YouTube con la URL proporcionada
     const musicFrame = document.createElement('iframe');
+    musicFrame.id = "musicFrame"; // Agregar un ID para que el botón de música lo reconozca
     musicFrame.width = '0';
     musicFrame.height = '0';
-    musicFrame.src = 'https://www.youtube.com/embed/mvHNk1IBCv4?autoplay=1&mute=0'; // Cambiar al formato correcto
-    musicFrame.frameborder = '0';
-    musicFrame.allow = 'autoplay';
+    musicFrame.src = 'https://www.youtube.com/embed/mvHNk1IBCv4?enablejsapi=1&autoplay=1&mute=0';
+    musicFrame.frameBorder = '0';
+    musicFrame.allow = 'autoplay; encrypted-media';
+    musicFrame.style.display = "none"; // Oculto para que no se vea en la página
 
     // Esta función se llamará cuando el usuario haga clic en la página
     document.body.addEventListener('click', function () {
         // Añadir el iframe a la página solo cuando el usuario haga clic
-        document.body.appendChild(musicFrame);
+        if (!document.body.contains(musicFrame)) {
+            document.body.appendChild(musicFrame);
+        }
     });
 
     // Mostrar la ventana de bienvenida al cargar
@@ -36,9 +40,12 @@ window.onload = function () {
         respuesta.textContent = 'Sabía que dirías que sí jajaja ❤️';
         respuesta.classList.add('animate__tada');
 
-        // Mostrar el GIF debajo de la respuesta
+        // Limpiar el contenedor del GIF antes de agregar otro
+        gifContainer.innerHTML = "";
+
+        // Crear y agregar el nuevo GIF
         const gif = document.createElement('img');
-        gif.src = 'gif_imagen.gif'; // Usamos el GIF local llamado "gif_imagen.gif"
+        gif.src = 'heart-happy.gif'; // Usamos el GIF local llamado "gif_imagen.gif"
         gif.alt = 'GIF de celebración';
         gif.style.maxWidth = '100%';
         gif.style.marginTop = '20px';
@@ -58,7 +65,7 @@ window.onload = function () {
         const audio = new Audio('celebration.mp3');
         audio.play();
 
-        // Ocultar la ventana y mostrar el contenido principal
+        // Ocultar la ventana de bienvenida y mostrar el contenido principal
         welcomeWindow.style.display = 'none';
         mainContent.style.display = 'block';
     });
@@ -76,18 +83,21 @@ window.onload = function () {
         noBtn.style.left = `${randomX}px`;
         noBtn.style.top = `${randomY}px`;
     });
-};
 
-const toggleMusicBtn = document.getElementById('toggleMusic');
-let isMusicPlaying = true;
+    // Control de la música con el botón de reproducción/pausa
+    const toggleMusicBtn = document.getElementById('toggleMusic');
+    let isMusicPlaying = true;
 
-toggleMusicBtn.addEventListener('click', function () {
-    if (isMusicPlaying) {
-        musicFrame.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
-        toggleMusicBtn.textContent = "Reproducir música";
-    } else {
-        musicFrame.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
-        toggleMusicBtn.textContent = "Pausar música";
+    if (toggleMusicBtn) {
+        toggleMusicBtn.addEventListener('click', function () {
+            if (isMusicPlaying) {
+                musicFrame.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+                toggleMusicBtn.textContent = "Reproducir música";
+            } else {
+                musicFrame.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+                toggleMusicBtn.textContent = "Pausar música";
+            }
+            isMusicPlaying = !isMusicPlaying;
+        });
     }
-    isMusicPlaying = !isMusicPlaying;
-});
+};
