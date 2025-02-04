@@ -5,6 +5,7 @@ window.onload = function () {
     const siBtn = document.getElementById('siBtn');
     const noBtn = document.getElementById('noBtn');
     const respuesta = document.getElementById('respuesta');
+    const gifContainer = document.getElementById('gifContainer'); // El contenedor del GIF
 
     // Crear el iframe de YouTube con la URL proporcionada
     const musicFrame = document.createElement('iframe');
@@ -32,8 +33,16 @@ window.onload = function () {
 
     // Acción cuando se hace clic en el botón "¡Sí!"
     siBtn.addEventListener('click', function () {
-        respuesta.textContent = 'Sabia que dirías que sí jajaja ❤️';
+        respuesta.textContent = 'Sabía que dirías que sí jajaja ❤️';
         respuesta.classList.add('animate__tada');
+
+        // Mostrar el GIF debajo de la respuesta
+        const gif = document.createElement('img');
+        gif.src = 'https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExdGxkcG94MWQxZXJ2M2UxOXpvMHFxZHlxb3J6NWtld2Mycjh3MXlhOCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/c76IJLufpNwSULPk77/giphy.gif'; // Cambiar la URL del GIF si es necesario
+        gif.alt = 'GIF de celebración';
+        gif.style.maxWidth = '100%';
+        gif.style.marginTop = '20px';
+        gifContainer.appendChild(gif);
 
         // Efecto de confeti
         confetti({
