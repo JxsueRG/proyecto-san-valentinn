@@ -236,3 +236,16 @@ canvas {
         font-size: 1.2em;
     }
 }
+
+/* Estilo para el contenedor del GIF */
+#gifContainer {
+    display: none; /* Oculto inicialmente */
+    text-align: center;
+    margin-top: 20px;
+}
+
+#gifContainer img {
+    max-width: 100%; /* Ajuste automático al tamaño de la pantalla */
+    max-height: 300px; /* Limita la altura máxima */
+    border-radius: 10px;
+}
