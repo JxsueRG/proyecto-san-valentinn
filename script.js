@@ -38,11 +38,14 @@ window.onload = function () {
 
         // Mostrar el GIF debajo de la respuesta
         const gif = document.createElement('img');
-        gif.src = 'https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExdGxkcG94MWQxZXJ2M2UxOXpvMHFxZHlxb3J6NWtld2Mycjh3MXlhOCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/c76IJLufpNwSULPk77/giphy.gif'; // Cambiar la URL del GIF si es necesario
+        gif.src = 'gif_imagen.gif'; // Usamos el GIF local llamado "gif_imagen.gif"
         gif.alt = 'GIF de celebración';
         gif.style.maxWidth = '100%';
         gif.style.marginTop = '20px';
         gifContainer.appendChild(gif);
+
+        // Mostrar el contenedor del GIF
+        gifContainer.style.display = 'block';
 
         // Efecto de confeti
         confetti({
