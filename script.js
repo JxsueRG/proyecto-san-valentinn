@@ -32,7 +32,7 @@ window.onload = function () {
 
     // Acción cuando se hace clic en el botón "¡Sí!"
     siBtn.addEventListener('click', function () {
-        respuesta.textContent = 'Sabia que dirías que sí, gracias ❤️';
+        respuesta.textContent = 'Sabia que dirías que sí jajaja ❤️';
         respuesta.classList.add('animate__tada');
 
         // Efecto de confeti
