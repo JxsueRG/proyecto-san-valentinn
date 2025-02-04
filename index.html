@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Quieres ser mi San Valentín?</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+    <!-- Ventana emergente de bienvenida -->
+    <div id="welcomeWindow" class="welcome-window">
+        <h2>Primero que nada, quiero desearte un hermoso día y recordarte lo increíble que eres bonita. Admiro tu valentía, tu fortaleza y esa capacidad de iluminar todo a tu alrededor con tu sonrisa. Desde que te conocí, cada momento contigo ha sido especial, y aunque ha pasado poco tiempo.
+
+            Eres una persona increíble, llena de luz y alegría. Te mereces todo lo bueno del mundo porque tu corazón es tan grande y hermoso como tú.
+            
+            Gracias por existir y por hacer mis días más felices. 💖</h2>
+        <button id="closeWelcome" class="animate__animated animate__bounceIn">Cerrar</button>
+    </div>
+
+    <!-- Contenido principal -->
+    <div id="mainContent" class="container" style="display:none;">
+        <h1 class="animate__animated animate__heartBeat">🌹 Tengo una pregunta para ti... 🌹</h1>
+        <p class="animate__animated animate__fadeIn">¿Me harías el honor de ser mi San Valentín?</p>
+        <p class="animate__animated animate__fadeIn">💖</p>
+        <div class="buttons">
+            <button id="siBtn" class="animate__animated animate__bounceIn">Sí</button>
+            <button id="noBtn" class="animate__animated animate__bounceIn">No</button>
+        </div>
+        <p id="respuesta" class="animate__animated"></p>
+    </div>
+
+    <!-- Confeti effect -->
+    <canvas id="confetti"></canvas>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
